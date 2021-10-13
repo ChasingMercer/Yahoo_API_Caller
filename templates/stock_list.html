@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+   body { background: teal !important; }
+   div { font-family: monospace;}
+   h1 {font-size: 50px; color: white;}
+   label { font-size: 20px; color: white;}
+</style>
+<div class="container-md mx-auto bg-white">
+<h1>
+{% for i in stock_list %}
+    {{ i }}<br>
+{% endfor %}
+</h1>
+</div>
