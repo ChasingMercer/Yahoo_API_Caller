@@ -1,14 +1,16 @@
 {% import "bootstrap/wtf.html" as wtf %}
-{{ form.csrf_token }}
+
+
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 crossorigin="anonymous">
 
 <style type="text/css">
+    nav {padding: 10px;}
    body { background: teal !important; }
    div { font-family: monospace;}
-   h1 {font-size: 50px; color: white; text: center;}
+   h1 {font-size: 50px; color: white; text-align: center;}
    label { font-size: 20px; color: white;}
    iframe {
       display: block;
@@ -18,36 +20,27 @@ crossorigin="anonymous">
     }
 </style>
 
-    <div class="container text-center" style=" padding: 100px 0px 0px 20px">
-        <form class="form-wrapper" method="POST" action="/">
-            <h1><u> <strong>Stock Finder</strong></u></h1>
-            <label style="text-size=30px;">
-                What ticker would you like to find the price of?
-            </label>
-            <div class="form-group py-2">
-                {{ form.ticker(class_= "form-control-lg dark text-center", size=40, placeholder="Ticker") }}
-            </div>
-            <div class="form-group py-2">
-                <button type="submit" name="submit" value="submit_a"> Submit </button>
-                <button type="submit" name="clear" value="clear"> Clear </button>
-            </div>
-        </form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Price Finder</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tickers">Tickers</a>
+        </li>
+    </ul>
     </div>
-    <section id="stockdata">
-        <div class="container text-center mx-auto">
-        <label style="padding:20px;">
-                {% for i in pricelist %}
-                    {{ i }}<br>
-                {% endfor %}
-        </label>
-        </div>
-    </section>
-    <section id="dataframe">
-        <div class="container text-center">
-            <h1><u><strong>S&P 500</strong></u></h1>
-            <iframe src="https://datahub.io/core/s-and-p-500-companies/r/0.html"  height="100%" frameborder="10"></iframe>
-        </div>
-    </section>
+</nav>
+
+{%block content%}
+
+{%endblock content %}
 
 
 

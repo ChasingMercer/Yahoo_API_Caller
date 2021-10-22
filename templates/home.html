@@ -1,0 +1,31 @@
+
+{% extends "index.html" %}
+
+{% block content %}
+{{ form.csrf_token }}
+    <div class="container text-center" style=" padding: 100px 0px 0px 20px">
+        <form class="form-wrapper" method="POST" action="/">
+            <h1><u> <strong>Stock Finder</strong></u></h1>
+            <label style="text-size-adjust:30px;">
+                What ticker would you like to find the price of?
+            </label>
+            <div class="form-group py-2">
+                {{ form.ticker(class_= "form-control-lg dark text-center", size=40, placeholder="Ticker") }}
+            </div>
+            <div class="form-group py-2">
+                <button type="submit" name="submit" value="submit_a"> Submit </button>
+                <button type="submit" name="clear" value="clear"> Clear </button>
+            </div>
+        </form>
+    </div>
+    <section id="stockdata">
+        <div class="container text-center mx-auto">
+        <label style="padding:20px;">
+                {% for i in pricelist %}
+                    {{ i }}<br>
+                {% endfor %}
+        </label>
+        </div>
+    </section>
+    
+{% endblock content %}

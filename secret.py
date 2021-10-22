@@ -1,1 +1,1 @@
-API_KEY = 'Insert API key for app to function'
+API_KEY = 'sk_1e67436776994b12999702c40c864143'
